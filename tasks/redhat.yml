@@ -1,0 +1,11 @@
+---
+# tasks file for ansible-role-zfsonlinux
+
+ - name: install ZFS yum repo
+   yum: name=http://archive.zfsonlinux.org/epel/zfs-release.el7.noarch.rpm state=installed
+
+ - name: install ZFS and kernel-devel
+   yum: name={{ item }} state=installed
+   with_items:
+    - kernel-devel
+    - zfs 
