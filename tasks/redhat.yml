@@ -3,6 +3,11 @@
 
  - name: install ZFS yum repo
    yum: name=http://archive.zfsonlinux.org/epel/zfs-release.el7.noarch.rpm state=installed
+   when: ansible_distribution_major_version == "7" 
+
+ - name: install ZFS yum repo
+   yum: name=http://archive.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm state=installed
+   when: ansible_distribution_major_version == "7" 
 
  - name: install ZFS and kernel-devel
    yum: name={{ item }} state=installed
